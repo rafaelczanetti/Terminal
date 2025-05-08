@@ -52,5 +52,6 @@ Este projeto apresenta uma maneira única de exibir um portfólio profissional a
 3. Comece a digitar comandos para explorar o portfólio
 4. Em dispositivos móveis, use os botões na parte inferior da tela
 
-![image](https://github.com/user-attachments/assets/9d62a32d-61df-4806-be2e-00e555a114fc)
+![image](https://github.com/user-attachments/assets/287eacc5-3a9a-4d5b-8083-40cf2109ee11)
+
 
