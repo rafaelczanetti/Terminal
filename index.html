@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio terminal interativo focado em cibersegurança e bug bounty">
+    <meta name="theme-color" content="#282a36">
+    <meta name="keywords" content="terminal, portfolio, cibersegurança, bug bounty, desenvolvedor, hacker">
+    <meta name="author" content="Rafael ZC">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Terminal Portfolio de Cibersegurança">
+    <meta property="og:description" content="Portfolio interativo com foco em cibersegurança e bug bounty">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rafaelczanetti.github.io/terminal-portfolio/">
+    <meta property="og:image" content="icons/og-image.png">
+    
+    <!-- PWA Support -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    
+    <!-- Preloads e preconnects para otimizar carregamento -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    
+    <title>Terminal ZC</title>
+    
+    <!-- Estilos críticos inline para melhorar First Paint -->
+    <style>
+        body {
+            background-color: #282a36;
+            color: #f8f8f2;
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', monospace;
+        }
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #282a36;
+            z-index: 9999;
+        }
+        .loader:after {
+            content: "";
+            width: 40px;
+            height: 40px;
+            border: 4px solid #44475a;
+            border-top-color: #ff79c6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+    
+    <!-- CSS principal carregado de forma não-bloqueante -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Indicador de carregamento -->
+    <div class="loader" id="loader"></div>
+    
+    <div class="container">
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <div class="terminal-button close" title="Close" aria-label="Close Terminal"></div>
+                    <div class="terminal-button minimize" title="Increase Size" aria-label="Increase Terminal Size"></div>
+                    <div class="terminal-button expand" title="Decrease Size" aria-label="Decrease Terminal Size"></div>
+                </div>
+                <div class="terminal-title">portfolio.sh</div>
+            </div>
+            <div class="terminal-content" id="terminal-content" tabindex="0" aria-live="polite">
+                <div class="terminal-line current-line">
+                    <span class="prompt">user@system:~$</span>
+                    <span class="command" id="current-command" aria-label="Command Input"></span>
+                    <span class="cursor" aria-hidden="true"></span>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>© <span id="current-year">2025</span> Rafael ZC Terminal</p>
+        </div>
+    </div>
+    
+    <!-- Botões de comando para dispositivos móveis -->
+    <div class="mobile-buttons" id="mobile-buttons">
+        <button class="mobile-button" data-command="help">help</button>
+        <button class="mobile-button" data-command="about">about</button>
+        <button class="mobile-button" data-command="skills">skills</button>
+        <button class="mobile-button" data-command="projects">projects</button>
+        <button class="mobile-button" data-command="education">education</button>
+        <button class="mobile-button" data-command="experience">experience</button>
+        <button class="mobile-button" data-command="contact">contact</button>
+        <button class="mobile-button" data-command="whoami">whoami</button>
+        <button class="mobile-button" data-command="ls">ls</button>
+        <button class="mobile-button" data-command="date">date</button>
+        <button class="mobile-button" data-command="history">history</button>
+        <button class="mobile-button" data-command="social">social</button>
+        <button class="mobile-button" data-command="clear">clear</button>
+    </div>
+    
+    <!-- Container para notificações toast -->
+    <div id="toast-container"></div>
+    
+    <!-- JS carregado de forma não-bloqueante -->
+    <script src="script.js"></script>
+    
+    <!-- Script inline para remover o loader -->
+    <script>
+        window.addEventListener('load', function() {
+            document.getElementById('loader').style.display = 'none';
+        });
+        
+        // Detectar scroll para esconder os botões mobile
+        let lastScrollPosition = 0;
+        const mobileButtons = document.getElementById('mobile-buttons');
+        
+        if (mobileButtons) {
+            document.addEventListener('scroll', function() {
+                const currentScroll = window.scrollY;
+                
+                if (currentScroll > lastScrollPosition && currentScroll > 100) {
+                    // Scrolling down - hide buttons
+                    mobileButtons.classList.add('hide-mobile-buttons');
+                } else {
+                    // Scrolling up - show buttons
+                    mobileButtons.classList.remove('hide-mobile-buttons');
+                }
+                
+                lastScrollPosition = currentScroll;
+            });
+        }
+    </script>
+</body>
+</html> 
