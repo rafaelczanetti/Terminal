@@ -168,25 +168,19 @@ Feel free to reach out for collaboration opportunities or just to say hello!`
                 "Soft Skills": ["Problem Solving", "Team Collaboration", "Continuous Learning"]
             };
             
-            let output = `<div style="color: #ff79c6; font-weight: bold; font-size: 1.4em; padding-bottom: 10px; margin-bottom: 15px;">Technical Skills</div>`;
+            let output = `<div style="color: #ff79c6; font-weight: bold; font-size: 1.4em;">Technical Skills</div>
+            <div style="height: 10px;"></div>`;
             
-            let isFirst = true;
             for (const category in skillsData) {
-                if (isFirst) {
-                    isFirst = false;
-                } else {
-                    output += `<div style="margin-top: 30px;"></div>`;
-                }
-                
-                output += `<div style="margin-bottom: 10px;">
-                    <div style="color: #bd93f9; font-weight: bold; font-size: 1.1em; display: block; margin-bottom: 15px;">${category}</div>
-                    <div style="display: flex; flex-wrap: wrap; margin-left: 10px;">`;
+                output += `<div style="color: #bd93f9; font-weight: bold; font-size: 1.1em;">${category}</div>
+                <div style="height: 10px;"></div>
+                <div>`;
                 
                 skillsData[category].forEach(skill => {
-                    output += `<div style="display: inline-block; background-color: #44475a; color: #f8f8f2; padding: 8px 15px; border-radius: 4px; margin-right: 10px; margin-bottom: 10px;">${skill}</div>`;
+                    output += `<span style="display: inline-block; background-color: #44475a; color: #f8f8f2; padding: 8px 15px; border-radius: 4px; margin-right: 10px; margin-bottom: 10px;">${skill}</span>`;
                 });
                 
-                output += `</div></div>`;
+                output += `</div><div style="height: 20px;"></div>`;
             }
             
             return output;
