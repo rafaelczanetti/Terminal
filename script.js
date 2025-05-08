@@ -168,25 +168,19 @@ Feel free to reach out for collaboration opportunities or just to say hello!`
                 "Soft Skills": ["Problem Solving", "Team Collaboration", "Continuous Learning"]
             };
             
-            let output = `<div class="skills-title" style="color: #ff79c6; font-weight: bold; font-size: 1.4em; margin-bottom: 25px; text-align: center; border-bottom: 2px solid #44475a; padding-bottom: 10px; width: 100%;">Technical Skills</div>`;
+            let output = `<div style="color: #ff79c6; font-weight: bold; font-size: 1.4em; margin-bottom: 25px; text-align: center; border-bottom: 2px solid #44475a; padding-bottom: 10px;">Technical Skills</div>`;
             
-            output += `<div class="skills-container" style="display: flex; flex-direction: column; width: 100%; gap: 30px;">`;
-            
-            let skillIndex = 0;
             for (const category in skillsData) {
-                output += `<div class="skill-category" style="margin-bottom: 5px; width: 100%;">
-                    <div class="category-title" style="color: #bd93f9; font-weight: bold; font-size: 1.1em; margin-bottom: 12px; border-bottom: 1px solid #44475a; padding-bottom: 5px;">${category}</div>
-                    <div class="skills-grid" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; justify-content: flex-start;">`;
+                output += `<div style="margin-bottom: 20px;">
+                    <div style="color: #bd93f9; font-weight: bold; font-size: 1.1em; margin-bottom: 12px; border-bottom: 1px solid #44475a; padding-bottom: 5px;">${category}</div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">`;
                 
                 skillsData[category].forEach(skill => {
-                    output += `<span class="skill-badge" style="display: inline-flex; align-items: center; justify-content: center; background-color: #44475a; color: #f8f8f2; padding: 8px 12px; border-radius: 4px; margin-bottom: 5px; min-width: 140px; text-align: center; --index: ${skillIndex};">${skill}</span>`;
-                    skillIndex++;
+                    output += `<span style="display: inline-block; background-color: #44475a; color: #f8f8f2; padding: 8px 12px; border-radius: 4px; margin-right: 8px; margin-bottom: 8px;">${skill}</span>`;
                 });
                 
                 output += `</div></div>`;
             }
-            
-            output += `</div>`;
             
             return output;
         },
