@@ -168,15 +168,22 @@ Feel free to reach out for collaboration opportunities or just to say hello!`
                 "Soft Skills": ["Problem Solving", "Team Collaboration", "Continuous Learning"]
             };
             
-            let output = `<div style="color: #ff79c6; font-weight: bold; font-size: 1.4em; margin-bottom: 25px; text-align: center; border-bottom: 2px solid #44475a; padding-bottom: 10px;">Technical Skills</div>`;
+            let output = `<div style="color: #ff79c6; font-weight: bold; font-size: 1.4em; padding-bottom: 10px; margin-bottom: 15px;">Technical Skills</div>`;
             
+            let isFirst = true;
             for (const category in skillsData) {
-                output += `<div style="margin-bottom: 20px;">
-                    <div style="color: #bd93f9; font-weight: bold; font-size: 1.1em; margin-bottom: 12px; border-bottom: 1px solid #44475a; padding-bottom: 5px;">${category}</div>
-                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">`;
+                if (isFirst) {
+                    isFirst = false;
+                } else {
+                    output += `<div style="margin-top: 30px;"></div>`;
+                }
+                
+                output += `<div style="margin-bottom: 10px;">
+                    <div style="color: #bd93f9; font-weight: bold; font-size: 1.1em; display: block; margin-bottom: 15px;">${category}</div>
+                    <div style="display: flex; flex-wrap: wrap; margin-left: 10px;">`;
                 
                 skillsData[category].forEach(skill => {
-                    output += `<span style="display: inline-block; background-color: #44475a; color: #f8f8f2; padding: 8px 12px; border-radius: 4px; margin-right: 8px; margin-bottom: 8px;">${skill}</span>`;
+                    output += `<div style="display: inline-block; background-color: #44475a; color: #f8f8f2; padding: 8px 15px; border-radius: 4px; margin-right: 10px; margin-bottom: 10px;">${skill}</div>`;
                 });
                 
                 output += `</div></div>`;
