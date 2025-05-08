@@ -170,31 +170,35 @@ Feel free to reach out for collaboration opportunities or just to say hello!`
             
             let output = "";
             
-            output += `<p style="color: #ff79c6; font-weight: bold; font-size: 1.4em; margin-top: 0; margin-bottom: 15px;">Technical Skills</p>`;
+            // Common style for section headers
+            const headerStyle = "text-align: left; display: block; width: 100%; margin: 0 0 10px 0; padding: 0;";
+            
+            // Main title
+            output += `<p style="color: #ff79c6; font-weight: bold; font-size: 1.4em; ${headerStyle}">Technical Skills</p>`;
             
             // Programming Languages
-            output += `<p style="color: #bd93f9; font-weight: bold; font-size: 1.1em; margin-top: 20px; margin-bottom: 10px;">Programming Languages</p>`;
-            output += `<p>`;
+            output += `<p style="color: #bd93f9; font-weight: bold; font-size: 1.1em; margin-top: 20px; ${headerStyle}">Programming Languages</p>`;
+            output += `<div style="display: flex; flex-wrap: wrap; margin-bottom: 10px;">`;
             skillsData["Programming Languages"].forEach(skill => {
                 output += `<span style="display: inline-block; background-color: #44475a; color: #f8f8f2; padding: 8px 15px; border-radius: 4px; margin-right: 10px; margin-bottom: 10px;">${skill}</span>`;
             });
-            output += `</p>`;
+            output += `</div>`;
             
             // Tools & Platforms
-            output += `<p style="color: #bd93f9; font-weight: bold; font-size: 1.1em; margin-top: 20px; margin-bottom: 10px;">Tools & Platforms</p>`;
-            output += `<p>`;
+            output += `<p style="color: #bd93f9; font-weight: bold; font-size: 1.1em; margin-top: 20px; ${headerStyle}">Tools & Platforms</p>`;
+            output += `<div style="display: flex; flex-wrap: wrap; margin-bottom: 10px;">`;
             skillsData["Tools & Platforms"].forEach(skill => {
                 output += `<span style="display: inline-block; background-color: #44475a; color: #f8f8f2; padding: 8px 15px; border-radius: 4px; margin-right: 10px; margin-bottom: 10px;">${skill}</span>`;
             });
-            output += `</p>`;
+            output += `</div>`;
             
             // Soft Skills
-            output += `<p style="color: #bd93f9; font-weight: bold; font-size: 1.1em; margin-top: 20px; margin-bottom: 10px;">Soft Skills</p>`;
-            output += `<p>`;
+            output += `<p style="color: #bd93f9; font-weight: bold; font-size: 1.1em; margin-top: 20px; ${headerStyle}">Soft Skills</p>`;
+            output += `<div style="display: flex; flex-wrap: wrap; margin-bottom: 10px;">`;
             skillsData["Soft Skills"].forEach(skill => {
                 output += `<span style="display: inline-block; background-color: #44475a; color: #f8f8f2; padding: 8px 15px; border-radius: 4px; margin-right: 10px; margin-bottom: 10px;">${skill}</span>`;
             });
-            output += `</p>`;
+            output += `</div>`;
             
             return output;
         },
