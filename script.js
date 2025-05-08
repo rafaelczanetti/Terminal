@@ -168,20 +168,33 @@ Feel free to reach out for collaboration opportunities or just to say hello!`
                 "Soft Skills": ["Problem Solving", "Team Collaboration", "Continuous Learning"]
             };
             
-            let output = `<div style="color: #ff79c6; font-weight: bold; font-size: 1.4em;">Technical Skills</div>
-            <div style="height: 10px;"></div>`;
+            let output = "";
             
-            for (const category in skillsData) {
-                output += `<div style="color: #bd93f9; font-weight: bold; font-size: 1.1em;">${category}</div>
-                <div style="height: 10px;"></div>
-                <div>`;
-                
-                skillsData[category].forEach(skill => {
-                    output += `<span style="display: inline-block; background-color: #44475a; color: #f8f8f2; padding: 8px 15px; border-radius: 4px; margin-right: 10px; margin-bottom: 10px;">${skill}</span>`;
-                });
-                
-                output += `</div><div style="height: 20px;"></div>`;
-            }
+            output += `<p style="color: #ff79c6; font-weight: bold; font-size: 1.4em; margin-top: 0; margin-bottom: 15px;">Technical Skills</p>`;
+            
+            // Programming Languages
+            output += `<p style="color: #bd93f9; font-weight: bold; font-size: 1.1em; margin-top: 20px; margin-bottom: 10px;">Programming Languages</p>`;
+            output += `<p>`;
+            skillsData["Programming Languages"].forEach(skill => {
+                output += `<span style="display: inline-block; background-color: #44475a; color: #f8f8f2; padding: 8px 15px; border-radius: 4px; margin-right: 10px; margin-bottom: 10px;">${skill}</span>`;
+            });
+            output += `</p>`;
+            
+            // Tools & Platforms
+            output += `<p style="color: #bd93f9; font-weight: bold; font-size: 1.1em; margin-top: 20px; margin-bottom: 10px;">Tools & Platforms</p>`;
+            output += `<p>`;
+            skillsData["Tools & Platforms"].forEach(skill => {
+                output += `<span style="display: inline-block; background-color: #44475a; color: #f8f8f2; padding: 8px 15px; border-radius: 4px; margin-right: 10px; margin-bottom: 10px;">${skill}</span>`;
+            });
+            output += `</p>`;
+            
+            // Soft Skills
+            output += `<p style="color: #bd93f9; font-weight: bold; font-size: 1.1em; margin-top: 20px; margin-bottom: 10px;">Soft Skills</p>`;
+            output += `<p>`;
+            skillsData["Soft Skills"].forEach(skill => {
+                output += `<span style="display: inline-block; background-color: #44475a; color: #f8f8f2; padding: 8px 15px; border-radius: 4px; margin-right: 10px; margin-bottom: 10px;">${skill}</span>`;
+            });
+            output += `</p>`;
             
             return output;
         },
